@@ -26,3 +26,36 @@ const dominos = {
   zipcode: 54321,
   acceptsReservations: true,
 };
+
+
+//writing the 'printPizzaPlace' function here that iterates through the object and prints out its properties and values.
+
+function printPizzaPlace(pizzaPlace) {
+  for (let key in pizzaPlace) {
+    console.log(`${key}: ${pizzaPlace[key]}`);
+  }
+}
+
+printPizzaPlace(dominos);
+console.log(printPizzaPlace(dominos));
+
+//writing 'toppingsPriceRange 
+
+function toppingsPriceRange(pizzaPlace) {
+  let prices = Object.values(pizzaPlace.pizzaToppings);
+  let minPrice = Math.min(...prices);
+  let maxPrice = Math.max(...prices);
+  return { min: minPrice, max: maxPrice };
+}
+
+console.log(toppingsPriceRange(dominos));
+
+//writing 'averageStarRating' function that calculates the average star rating of the pizza place.
+
+function averageStarRating(pizzaPlace) {
+  let ratings = Object.values(pizzaPlace.starReviews);
+  let total = ratings.reduce((acc, rating) => acc + rating, 0);
+  return total / ratings.length;
+}
+
+console.log(averageStarRating(dominos));
